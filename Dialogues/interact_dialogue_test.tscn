@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://infrd4o8brqs"]
+
+[ext_resource type="Script" uid="uid://c8po1dnj2w82" path="res://Winter_Horror_Game_MVP/Dialogues/dialogue_player.gd" id="1_oam2l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oam2l"]
+size = Vector2(119, 108.75)
+
+[node name="Dialogue_test_interact" type="Area2D"]
+script = ExtResource("1_oam2l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(194, 108.375)
+shape = SubResource("RectangleShape2D_oam2l")
+debug_color = Color(1.63645e-06, 0.768515, 0.274929, 0.42)
+
+[node name="dialogue_box" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="dialogue_box"]
+offset_left = 23.0
+offset_top = 202.0
+offset_right = 386.0
+offset_bottom = 292.0
+color = Color(0.898039, 0.847059, 0.713726, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="dialogue_box/ColorRect"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 143.0
+offset_bottom = 23.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Name"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="dialogue_box/ColorRect"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 24.0
+offset_right = 349.0
+offset_bottom = 81.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Chatting......."
