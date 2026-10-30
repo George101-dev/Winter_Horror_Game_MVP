@@ -9,7 +9,7 @@ func _physics_process(delta: float) -> void:
 	if is_in_dialogue:
 		velocity = Vector2.ZERO # Stop all existing momentum instantly
 		move_and_slide()
-		return # STOP HERE! The code below this line will be completely ignored.
+		return #The code below this line will be completely ignored.
 	var direction_x := Input.get_axis("ui_left", "ui_right")
 	var direction_y := Input.get_axis("ui_up", "ui_down")
 	

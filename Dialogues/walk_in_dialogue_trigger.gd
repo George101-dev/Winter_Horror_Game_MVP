@@ -53,9 +53,8 @@ func next_script():
 		if player:
 			player.is_in_dialogue = false
 			
-		# CHOOSE ONE:
-		queue_free() # Option A: Deletes this trigger forever so the cutscene only plays ONCE.
-		# current_dialogue_id = 0 # Option B: Un-comment this instead if you want it to replay every single time you walk here.
+		queue_free() 
+		# current_dialogue_id = 0 #Un-comment this instead if you want it to replay every single time you walk here.
 		return
 		
 	$dialogue_box/ColorRect/RichTextLabel.text = dialogue[current_dialogue_id]['name']
