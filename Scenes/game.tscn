@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgmjpy2e63xhd"]
+[gd_scene load_steps=15 format=3 uid="uid://dgmjpy2e63xhd"]
 
 [ext_resource type="PackedScene" uid="uid://do0hlcdbdqwqr" path="res://Winter_Horror_Game_MVP/Scenes/player.tscn" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://cs2fxkteeknro" path="res://Winter_Horror_Game_MVP/Scripts/game.gd" id="1_y0mbp"]
 [ext_resource type="PackedScene" uid="uid://caqd3i82ks48p" path="res://Winter_Horror_Game_MVP/Scenes/test_tree.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://infrd4o8brqs" path="res://Winter_Horror_Game_MVP/Dialogues/interact_dialogue_test.tscn" id="2_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://ce0bd7iiyi51a" path="res://Winter_Horror_Game_MVP/Dialogues/walk_in_dialogue_trigger.tscn" id="4_3dryh"]
@@ -42,21 +43,6 @@ turbulence_influence_max = 0.17
 turbulence_initial_displacement_min = -76.0
 turbulence_initial_displacement_max = 36.7
 
-[sub_resource type="Animation" id="Animation_u51gv"]
-resource_name = "intro"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-101, 265), Vector2(-14, 242)]
-}
-
 [sub_resource type="Animation" id="Animation_y0mbp"]
 length = 0.001
 tracks/0/type = "value"
@@ -72,14 +58,49 @@ tracks/0/keys = {
 "values": [Vector2(-101, 265)]
 }
 
+[sub_resource type="Animation" id="Animation_u51gv"]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-101, 265), Vector2(-14, 242)]
+}
+
+[sub_resource type="Animation" id="Animation_670js"]
+resource_name = "back"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(259, 209), Vector2(216, 209)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_670js"]
 _data = {
 &"RESET": SubResource("Animation_y0mbp"),
+&"back": SubResource("Animation_670js"),
 &"intro": SubResource("Animation_u51gv")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_670js"]
+size = Vector2(58, 69)
+
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_y0mbp")
 
 [node name="Player" parent="." instance=ExtResource("1_ebmjs")]
 position = Vector2(-101, 265)
@@ -167,4 +188,14 @@ d_file = "res://Winter_Horror_Game_MVP/Dialogues/jsons/dialogue_test_1.json"
 libraries = {
 &"": SubResource("AnimationLibrary_670js")
 }
-autoplay = "intro"
+
+[node name="Cutscene_Triggers" type="Node2D" parent="."]
+
+[node name="cutscene_trigger1" type="Area2D" parent="Cutscene_Triggers"]
+position = Vector2(270, 210)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscene_Triggers/cutscene_trigger1"]
+position = Vector2(35, 2)
+shape = SubResource("RectangleShape2D_670js")
+
+[connection signal="body_entered" from="Cutscene_Triggers/cutscene_trigger1" to="." method="_on_cutscene_trigger_1_body_entered"]
