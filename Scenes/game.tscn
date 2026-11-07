@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://dgmjpy2e63xhd"]
+[gd_scene load_steps=16 format=3 uid="uid://dgmjpy2e63xhd"]
 
 [ext_resource type="PackedScene" uid="uid://do0hlcdbdqwqr" path="res://Winter_Horror_Game_MVP/Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://cs2fxkteeknro" path="res://Winter_Horror_Game_MVP/Scripts/game.gd" id="1_y0mbp"]
 [ext_resource type="PackedScene" uid="uid://caqd3i82ks48p" path="res://Winter_Horror_Game_MVP/Scenes/test_tree.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://infrd4o8brqs" path="res://Winter_Horror_Game_MVP/Dialogues/interact_dialogue_test.tscn" id="2_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://ce0bd7iiyi51a" path="res://Winter_Horror_Game_MVP/Dialogues/walk_in_dialogue_trigger.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://dtfqv8bf8ftj6" path="res://Winter_Horror_Game_MVP/Scenes/test_cabin.tscn" id="6_670js"]
 
 [sub_resource type="Gradient" id="Gradient_ebmjs"]
 offsets = PackedFloat32Array(0.963636, 0.972727, 0.981818, 0.990909, 1)
@@ -58,6 +59,21 @@ tracks/0/keys = {
 "values": [Vector2(-101, 265)]
 }
 
+[sub_resource type="Animation" id="Animation_670js"]
+resource_name = "back"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(682, 230), Vector2(656, 230)]
+}
+
 [sub_resource type="Animation" id="Animation_u51gv"]
 resource_name = "intro"
 tracks/0/type = "value"
@@ -71,21 +87,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-101, 265), Vector2(-14, 242)]
-}
-
-[sub_resource type="Animation" id="Animation_670js"]
-resource_name = "back"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(259, 209), Vector2(216, 209)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_670js"]
@@ -151,12 +152,56 @@ scale = Vector2(3.12, 3.36)
 position = Vector2(251, 374)
 scale = Vector2(3.12, 3.36)
 
+[node name="test_tree17" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(345, 374)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree18" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(439, 374)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree19" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(533, 374)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree20" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(628, 374)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree21" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(725, 374)
+scale = Vector2(3.12, 3.36)
+
 [node name="test_tree9" parent="test_trees" instance=ExtResource("2_qxrlw")]
 position = Vector2(-104, 197)
 scale = Vector2(3.12, 3.36)
 
 [node name="test_tree10" parent="test_trees" instance=ExtResource("2_qxrlw")]
 position = Vector2(-98, 297)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree11" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(-98, 235)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree12" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(346, 115)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree13" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(441, 115)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree14" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(543, 115)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree15" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(640, 115)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree16" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(735, 116)
 scale = Vector2(3.12, 3.36)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
@@ -169,20 +214,24 @@ collision_base_size = 7.75
 process_material = SubResource("ParticleProcessMaterial_ebmjs")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -503.0
-offset_top = -343.0
-offset_right = 1130.0
-offset_bottom = 745.0
+offset_left = -1423.0
+offset_top = -1188.0
+offset_right = 1889.0
+offset_bottom = 1449.0
 color = Color(0.82606, 0.82606, 0.82606, 1)
 
 [node name="Dialogue_test_interact" parent="." instance=ExtResource("2_wrm1d")]
-position = Vector2(-529, 13)
-scale = Vector2(3.28, 1)
+position = Vector2(-977, -68)
+scale = Vector2(6.86262, 1.55725)
 d_file = "res://Winter_Horror_Game_MVP/Dialogues/jsons/dialogue_test_2.json"
 
 [node name="walk_in_dialogue_trigger" parent="." instance=ExtResource("4_3dryh")]
-position = Vector2(41, 102)
+position = Vector2(463, 102)
 d_file = "res://Winter_Horror_Game_MVP/Dialogues/jsons/dialogue_test_1.json"
+
+[node name="walk_in_dialogue_trigger2" parent="." instance=ExtResource("4_3dryh")]
+position = Vector2(-275, 99)
+d_file = "res://Winter_Horror_Game_MVP/Dialogues/jsons/dialogue_test_3.json"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -192,10 +241,14 @@ libraries = {
 [node name="Cutscene_Triggers" type="Node2D" parent="."]
 
 [node name="cutscene_trigger1" type="Area2D" parent="Cutscene_Triggers"]
-position = Vector2(270, 210)
+position = Vector2(692, 210)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscene_Triggers/cutscene_trigger1"]
 position = Vector2(35, 2)
 shape = SubResource("RectangleShape2D_670js")
+
+[node name="test_cabin" parent="." instance=ExtResource("6_670js")]
+position = Vector2(1324, -257)
+scale = Vector2(1.76014, 1.67454)
 
 [connection signal="body_entered" from="Cutscene_Triggers/cutscene_trigger1" to="." method="_on_cutscene_trigger_1_body_entered"]
