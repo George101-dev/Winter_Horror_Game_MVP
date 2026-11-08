@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dgmjpy2e63xhd"]
+[gd_scene load_steps=18 format=3 uid="uid://dgmjpy2e63xhd"]
 
 [ext_resource type="PackedScene" uid="uid://do0hlcdbdqwqr" path="res://Winter_Horror_Game_MVP/Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://cs2fxkteeknro" path="res://Winter_Horror_Game_MVP/Scripts/game.gd" id="1_y0mbp"]
@@ -58,6 +58,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(-101, 265)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player/Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_670js"]
 resource_name = "back"
@@ -89,18 +101,38 @@ tracks/0/keys = {
 "values": [Vector2(-101, 265), Vector2(-14, 242)]
 }
 
+[sub_resource type="Animation" id="Animation_og267"]
+resource_name = "sees_cabin"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -720)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_670js"]
 _data = {
 &"RESET": SubResource("Animation_y0mbp"),
 &"back": SubResource("Animation_670js"),
-&"intro": SubResource("Animation_u51gv")
+&"intro": SubResource("Animation_u51gv"),
+&"sees_cabin": SubResource("Animation_og267")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_670js"]
-size = Vector2(58, 69)
+size = Vector2(58, 216)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_og267"]
+size = Vector2(688, 96)
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
+position = Vector2(0, -1)
 script = ExtResource("1_y0mbp")
 
 [node name="Player" parent="." instance=ExtResource("1_ebmjs")]
@@ -204,6 +236,182 @@ scale = Vector2(3.12, 3.36)
 position = Vector2(735, 116)
 scale = Vector2(3.12, 3.36)
 
+[node name="test_tree22" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(830, 116)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree23" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(925, 116)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree24" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1017, 116)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree25" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1017, 32)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree26" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1017, -53)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree27" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1017, -140)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree28" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1017, -225)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree29" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1017, -312)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree30" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1110, -312)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree31" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1202, -312)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree32" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1442, -312)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree33" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1534, -312)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree34" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1629, -312)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree52" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1629, -399)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree53" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1629, -487)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree54" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1629, -572)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree55" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1629, -659)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree56" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1629, -751)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree57" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1537, -751)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree58" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1446, -751)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree59" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1206, -751)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree60" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1115, -751)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree61" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1022, -751)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree62" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1022, -666)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree63" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1022, -580)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree64" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1022, -494)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree65" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1022, -404)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree35" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1629, -225)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree36" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1629, -140)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree37" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1629, -55)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree38" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1629, 32)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree39" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1629, 117)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree40" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1629, 204)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree41" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1629, 291)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree42" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1629, 376)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree43" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1537, 376)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree44" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1445, 376)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree45" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1348, 376)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree46" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1255, 376)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree47" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1155, 376)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree48" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(1058, 376)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree49" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(968, 376)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree50" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(878, 376)
+scale = Vector2(3.12, 3.36)
+
+[node name="test_tree51" parent="test_trees" instance=ExtResource("2_qxrlw")]
+position = Vector2(806, 376)
+scale = Vector2(3.12, 3.36)
+
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 top_level = true
 position = Vector2(102, -45)
@@ -215,9 +423,9 @@ process_material = SubResource("ParticleProcessMaterial_ebmjs")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -1423.0
-offset_top = -1188.0
-offset_right = 1889.0
-offset_bottom = 1449.0
+offset_top = -1935.0
+offset_right = 3362.0
+offset_bottom = 1933.0
 color = Color(0.82606, 0.82606, 0.82606, 1)
 
 [node name="Dialogue_test_interact" parent="." instance=ExtResource("2_wrm1d")]
@@ -226,12 +434,18 @@ scale = Vector2(6.86262, 1.55725)
 d_file = "res://Winter_Horror_Game_MVP/Dialogues/jsons/dialogue_test_2.json"
 
 [node name="walk_in_dialogue_trigger" parent="." instance=ExtResource("4_3dryh")]
-position = Vector2(463, 102)
+position = Vector2(464, -67)
+scale = Vector2(1, 2.6)
 d_file = "res://Winter_Horror_Game_MVP/Dialogues/jsons/dialogue_test_1.json"
 
 [node name="walk_in_dialogue_trigger2" parent="." instance=ExtResource("4_3dryh")]
 position = Vector2(-275, 99)
 d_file = "res://Winter_Horror_Game_MVP/Dialogues/jsons/dialogue_test_3.json"
+
+[node name="walk_in_dialogue_trigger3" parent="." instance=ExtResource("4_3dryh")]
+position = Vector2(-1208, -151)
+scale = Vector2(9.01657, 1.13977)
+d_file = "res://Winter_Horror_Game_MVP/Dialogues/jsons/dialogue_test_4.json"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -244,11 +458,18 @@ libraries = {
 position = Vector2(692, 210)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscene_Triggers/cutscene_trigger1"]
-position = Vector2(35, 2)
+position = Vector2(35, 55)
 shape = SubResource("RectangleShape2D_670js")
 
+[node name="cutscene_trigger2" type="Area2D" parent="Cutscene_Triggers"]
+position = Vector2(1328, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscene_Triggers/cutscene_trigger2"]
+shape = SubResource("RectangleShape2D_og267")
+
 [node name="test_cabin" parent="." instance=ExtResource("6_670js")]
-position = Vector2(1324, -257)
+position = Vector2(1324, -711)
 scale = Vector2(1.76014, 1.67454)
 
 [connection signal="body_entered" from="Cutscene_Triggers/cutscene_trigger1" to="." method="_on_cutscene_trigger_1_body_entered"]
+[connection signal="body_entered" from="Cutscene_Triggers/cutscene_trigger2" to="." method="_on_cutscene_trigger_2_body_entered"]
