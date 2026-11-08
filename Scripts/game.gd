@@ -1,10 +1,11 @@
 extends Node2D
 
-var is_cutscene_active: bool = false
+var is_in_cutscene_2: bool = false
 @onready var player = get_tree().current_scene.find_child("Player", true, false)
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var cutscene_trigger_1: Area2D = $Cutscene_Triggers/cutscene_trigger1
 @onready var cutscene_trigger_2: Area2D = $Cutscene_Triggers/cutscene_trigger2
+@onready var walk_in_dialogue_trigger_3 = $walk_in_dialogue_trigger3
 
 
 func _ready() -> void:
@@ -13,13 +14,16 @@ func _ready() -> void:
 	await animation_player.animation_finished
 	player.is_in_cutscene = false
 
-func player_input_1():
-	if Input.is_action_pressed("Interact") and player.is_in_cutscene == true:
+func _input(event: InputEvent) -> void:
+	if is_in_cutscene_2 == true and event.is_action_pressed("Interact"):
+		is_in_cutscene_2 = false
 		animation_player.play("sees_cabin")
 		await animation_player.animation_finished
-		animation_player.play("RESET")
-		player.is_in_cutscene = false
-		cutscene_trigger_2.queue_free()
+		if animation_player.animation_finished and walk_in_dialogue_trigger_3.current_dialogue_id > 2:
+			animation_player.play("sees_cabin_ends")
+			player.is_in_cutscene = false
+			
+			cutscene_trigger_2.queue_free()
 		return
 
 func _on_cutscene_trigger_1_body_entered(body: Node2D) -> void:
@@ -34,5 +38,5 @@ func _on_cutscene_trigger_1_body_entered(body: Node2D) -> void:
 func _on_cutscene_trigger_2_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		player.is_in_cutscene = true
-		player_input_1()
+		is_in_cutscene_2 = true
 		return

@@ -2,7 +2,7 @@ extends Area2D
 
 @export_file("*.json") var d_file: String
 var dialogue = []
-var current_dialogue_id = 0
+@export var current_dialogue_id = 0
 var d_active = false
 
 func _ready() -> void:
