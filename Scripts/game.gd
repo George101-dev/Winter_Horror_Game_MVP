@@ -13,16 +13,16 @@ func _ready() -> void:
 	animation_player.play("intro")
 	await animation_player.animation_finished
 	player.is_in_cutscene = false
+	walk_in_dialogue_trigger_3.event_line_reached.connect(_on_event_line_reached)
 
 func _input(event: InputEvent) -> void:
 	if is_in_cutscene_2 == true and event.is_action_pressed("Interact"):
 		is_in_cutscene_2 = false
 		animation_player.play("sees_cabin")
 		await animation_player.animation_finished
-		if animation_player.animation_finished and walk_in_dialogue_trigger_3.current_dialogue_id > 2:
+		if animation_player.animation_finished and walk_in_dialogue_trigger_3.event_index > 2:
 			animation_player.play("sees_cabin_ends")
 			player.is_in_cutscene = false
-			
 			cutscene_trigger_2.queue_free()
 		return
 

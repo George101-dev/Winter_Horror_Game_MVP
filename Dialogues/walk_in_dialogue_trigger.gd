@@ -1,8 +1,10 @@
 extends Area2D
 
+signal event_line_reached
 @export_file("*.json") var d_file: String
 var dialogue = []
-@export var current_dialogue_id = 0
+var current_dialogue_id = 0
+@export var event_index: int = -1
 var d_active = false
 
 func _ready() -> void:
@@ -42,6 +44,9 @@ func load_dialogue():
 
 func next_script():
 	current_dialogue_id += 1
+	
+	if current_dialogue_id == event_index:
+		event_line_reached.emit()
 	
 	if current_dialogue_id >= dialogue.size():
 		$dialogue_box.visible = false
