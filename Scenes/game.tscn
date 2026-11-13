@@ -462,7 +462,7 @@ d_file = "res://Winter_Horror_Game_MVP/Dialogues/jsons/dialogue_test_3.json"
 position = Vector2(-1208, -151)
 scale = Vector2(9.01657, 1.13977)
 d_file = "res://Winter_Horror_Game_MVP/Dialogues/jsons/dialogue_test_4.json"
-event_index = 1
+event_index = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

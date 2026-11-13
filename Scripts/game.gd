@@ -21,10 +21,6 @@ func _input(event: InputEvent) -> void:
 		is_in_cutscene_2 = false
 		animation_player.play("sees_cabin")
 		await animation_player.animation_finished
-		if animation_player.animation_finished and walk_in_dialogue_trigger_3.event_index > 2:
-			animation_player.play("sees_cabin_ends")
-			player.is_in_cutscene = false
-			cutscene_trigger_2.queue_free()
 		return
 
 func _on_cutscene_trigger_1_body_entered(body: Node2D) -> void:
@@ -43,4 +39,6 @@ func _on_cutscene_trigger_2_body_entered(body: Node2D) -> void:
 		return
 
 func _on_event_line_reached():
-	print("hi")
+	animation_player.play("sees_cabin_ends")
+	player.is_in_cutscene = false
+	cutscene_trigger_2.queue_free()
