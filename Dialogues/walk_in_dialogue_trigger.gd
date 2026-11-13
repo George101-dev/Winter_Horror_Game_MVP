@@ -44,7 +44,8 @@ func load_dialogue():
 
 func next_script():
 	current_dialogue_id += 1
-	
+	print("id is: ", current_dialogue_id)
+	print("index is: ", event_index)
 	if current_dialogue_id == event_index:
 		event_line_reached.emit()
 	

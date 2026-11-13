@@ -1,7 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtfqv8bf8ftj6"]
+[gd_scene load_steps=4 format=3 uid="uid://dtfqv8bf8ftj6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oju6u"]
-size = Vector2(78, 81)
+size = Vector2(21, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cfp0"]
+size = Vector2(36, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dc7db"]
+size = Vector2(21, 81)
 
 [node name="test_cabin" type="StaticBody2D"]
 collision_layer = 2
@@ -42,5 +48,13 @@ offset_bottom = 25.0
 color = Color(0.713292, 0.597723, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+position = Vector2(-28.5, 0.5)
 shape = SubResource("RectangleShape2D_oju6u")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -13.5)
+shape = SubResource("RectangleShape2D_5cfp0")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(28.5, 0.5)
+shape = SubResource("RectangleShape2D_dc7db")
