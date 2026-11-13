@@ -9,11 +9,12 @@ var is_in_cutscene_2: bool = false
 
 
 func _ready() -> void:
+	walk_in_dialogue_trigger_3.event_line_reached.connect(_on_event_line_reached)
 	player.is_in_cutscene = true
 	animation_player.play("intro")
 	await animation_player.animation_finished
 	player.is_in_cutscene = false
-	walk_in_dialogue_trigger_3.event_line_reached.connect(_on_event_line_reached)
+	
 
 func _input(event: InputEvent) -> void:
 	if is_in_cutscene_2 == true and event.is_action_pressed("Interact"):
@@ -40,3 +41,6 @@ func _on_cutscene_trigger_2_body_entered(body: Node2D) -> void:
 		player.is_in_cutscene = true
 		is_in_cutscene_2 = true
 		return
+
+func _on_event_line_reached():
+	print("hi")
